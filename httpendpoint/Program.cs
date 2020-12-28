@@ -39,41 +39,27 @@ namespace httpendpoint
             HttpListenerRequest request = context.Request;
             HttpListenerResponse response = context.Response;
 
-            LogRequest(request.RawUrl);
+            Console.WriteLine(request.RawUrl);
 
+            foreach (var header in request.Headers.AllKeys)
+            {
+                Console.WriteLine(string.Format("{0}: {1}", header, request.Headers[header]));
+            }
 
             if (request.HasEntityBody)
             {
                 System.IO.Stream body = request.InputStream;
                 System.Text.Encoding encoding = request.ContentEncoding;
                 System.IO.StreamReader reader = new System.IO.StreamReader(body, encoding);
-                if (request.ContentType != null)
-                {
-                    Console.WriteLine("Client data content type {0}", request.ContentType);
-                }
-                Console.WriteLine("Client data content length {0}", request.ContentLength64);
-
-                Console.WriteLine("Start of client data:");
-                // Convert the data to a string and display it on the console.
-                string s = reader.ReadToEnd();
-                Console.WriteLine(s);
-                Console.WriteLine("End of client data:");
+                Console.WriteLine(reader.ReadToEnd());
                 body.Close();
                 reader.Close();
             }
 
-            response.StatusCode = 500;
+            response.StatusCode = 200;
             response.Close();
-        }
 
-        static void LogRequest(string data)
-        {
-            Console.WriteLine(data);
-        }
-
-        static void LogResponse(string data)
-        {
-            
+            Console.WriteLine();
         }
     }
 }

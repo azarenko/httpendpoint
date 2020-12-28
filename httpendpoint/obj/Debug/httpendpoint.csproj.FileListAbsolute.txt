@@ -3,3 +3,4 @@ D:\projects\httpendpoint\httpendpoint\bin\Debug\httpendpoint.pdb
 D:\projects\httpendpoint\httpendpoint\obj\Debug\httpendpoint.csprojAssemblyReference.cache
 D:\projects\httpendpoint\httpendpoint\obj\Debug\httpendpoint.exe
 D:\projects\httpendpoint\httpendpoint\obj\Debug\httpendpoint.pdb
+D:\projects\httpendpoint\httpendpoint\obj\Debug\httpendpoint.csproj.CoreCompileInputs.cache
